@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightning-Fox Browser</title>
+    <style>
+        body {
+            background-color: red; /* Czerwone tło */
+            color: yellow; /* Żółta czcionka */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        #searchBar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #searchInput {
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .searchButton {
+            padding: 10px 20px;
+            margin: 0 5px;
+            background-color: yellow; /* Żółty przycisk */
+            color: black; /* Czarna czcionka */
+            border: none;
+            cursor: pointer;
+        }
+        .searchButton:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lightning-Fox</h1>
+    <div id="searchBar">
+        <input type="text" id="searchInput" placeholder="Wpisz zapytanie...">
+        <br>
+        <button class="searchButton" onclick="search('https://www.google.com/search?q=')">Google</button>
+        <button class="searchButton" onclick="search('https://www.bing.com/search?q=')">Bing</button>
+        <button class="searchButton" onclick="search('https://search.brave.com/search?q=')">Brave</button>
+    </div>
+
+    <script>
+        function search(baseURL) {
+            var query = document.getElementById('searchInput').value;
+            if (query) {
+                var searchUrl = baseURL + encodeURIComponent(query);
+                window.open(searchUrl, '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
